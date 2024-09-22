@@ -10,10 +10,10 @@ app.post("/signup", async (req, res) => {
         password: "dev@123",
     });
 
-    try{
+    try {
         await user.save();
         res.send("User created successfully");
-    } catch(err){
+    } catch (err) {
         res.status(400).send("Some error occur when creating an user");
     }
 });
