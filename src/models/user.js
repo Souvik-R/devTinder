@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -16,7 +17,12 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         required: true,
         unique: true,
-        trim: true
+        trim: true,
+        validate(value){
+            if(!validator.isEmail(value)){
+                throw new Error("Invalid Email");
+            }
+        }
     },
     password: {
         type: String,
@@ -36,7 +42,12 @@ const userSchema = new mongoose.Schema({
     },
     photoUrl: {
         type: String,
-        default: "https://www.vecteezy.com/free-vector/default-profile-picture"
+        default: "https://www.vecteezy.com/free-vector/default-profile-picture",
+        validate(value){
+            if(!validator.isURL(value)){
+                throw new Error("Invalid URL");
+            }
+        }
     },
     about: {
         type: String,
