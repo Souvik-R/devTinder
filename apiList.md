@@ -12,8 +12,11 @@
 
 ## connectionRequestRouter
 - POST /request/send/interested/:userId
-- POST /request/send/ignored/:userId
 - POST /request/review/accepted/:requestId
-- POST /request/review/rejected/:requestId
+
+## userRouter
+- GET /user/request
+- GET /user/connections
+- GET /user/feed
 
 
