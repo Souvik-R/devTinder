@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema({
     },
     photoUrl: {
         type: String,
-        default: "https://www.vecteezy.com/free-vector/default-profile-picture",
+        default: "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
         validate(value){
             if(!validator.isURL(value)){
                 throw new Error("Invalid URL");
